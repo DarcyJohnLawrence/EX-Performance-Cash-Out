@@ -15,4 +15,8 @@
 </fieldset>
 
 <style>
+    option,
+    select {
+        font-size: small;
+    }
 </style>

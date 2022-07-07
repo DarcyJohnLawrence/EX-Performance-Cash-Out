@@ -1,15 +1,31 @@
 <script>
-    export let placeholder = '';
+    export let value = '';
 </script>
 
 <fieldset>
     <div class="form-group">
-        <input type="text" class="form-control" id="btngrp-search2" {placeholder} />
+        <input class="form-control" {...$$restProps} bind:value />
     </div>
 </fieldset>
 
 <style>
     input {
-        width: 100%;
+        max-width: 200px;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+
+    input::placeholder {
+        font-size: small;
     }
 </style>

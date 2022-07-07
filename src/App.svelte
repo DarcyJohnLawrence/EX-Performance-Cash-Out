@@ -43,107 +43,133 @@
 
 <main>
     <div class="container">
-        <h1>EX Performance Calculator</h1>
-        <div class="table-responsive">
-            <table class="table table-hover mrgn-tp-xl">
+        <div class="mrgn-tp-lg">
+            <h1 id="title">EX Performance Calculator</h1>
+        </div>
+
+        <div class="table-responsive mrgn-tp-xl">
+            <table class="table">
                 <caption class="wb-inv">Caption text</caption>
                 <thead>
                     <tr>
-                        <th scope="col" class="col-sm-auto">Fiscal Year</th>
-                        <th scope="col" class="col-sm-auto">Employment Classification</th>
-                        <th scope="col" class="col-sm-auto">Salary</th>
-                        <th scope="col" class="col-sm-auto">In-Range Salary %</th>
-                        <th scope="col" class="col-sm-auto">Performance Pay %</th>
+                        <th scope="col" class="col-md-2">Fiscal Year</th>
+                        <th scope="col" class="col-md-2">Employment Classification</th>
+                        <th scope="col" class="col-md-2">Salary</th>
+                        <th scope="col" class="col-md-2">In-Range Salary %</th>
+                        <th scope="col" class="col-md-2">Performance Pay %</th>
+                        <th scope="col" class="col-md-2">Lump Sum Pay</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
-                            <p>2017-2018</p>
+                            <p class="text-center">2017-2018</p>
                         </td>
                         <td>
                             <ClassificationDropdown />
                         </td>
                         <td>
-                            <Input placeholder="Enter Salary" />
+                            <Input type="number" placeholder="Enter Salary" />
                         </td>
                         <td>
-                            <Input placeholder="Enter In-Range %" />
+                            <Input type="number" placeholder="Enter In-Range %" />
                         </td>
                         <td>
-                            <Input placeholder="Enter Performance Pay %" />
+                            <Input type="number" placeholder="Enter Performance Pay %" />
+                        </td>
+                        <td>
+                            <p class="text-center">-</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>2018-2019</p>
+                            <p class="text-center">2018-2019</p>
                         </td>
                         <td>
                             <ClassificationDropdown />
                         </td>
                         <td>
-                            <Input placeholder="Enter Salary" />
+                            <Input type="number" placeholder="Enter Salary" />
                         </td>
                         <td>
-                            <Input placeholder="Enter In-Range %" />
+                            <Input type="number" placeholder="Enter In-Range %" />
                         </td>
                         <td>
-                            <Input placeholder="Enter Performance Pay %" />
+                            <Input type="number" placeholder="Enter Performance Pay %" />
+                        </td>
+                        <td>
+                            <p class="text-center">-</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>2019-2020</p>
+                            <p class="text-center">2019-2020</p>
                         </td>
                         <td>
                             <ClassificationDropdown />
                         </td>
                         <td>
-                            <Input placeholder="Enter Salary" />
+                            <Input type="number" placeholder="Enter Salary" />
                         </td>
                         <td>
-                            <Input placeholder="Enter In-Range %" />
+                            <Input type="number" placeholder="Enter In-Range %" />
                         </td>
                         <td>
-                            <Input placeholder="Enter Performance Pay %" />
+                            <Input type="number" placeholder="Enter Performance Pay %" />
+                        </td>
+                        <td>
+                            <p class="text-center">-</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>2020-2021</p>
+                            <p class="text-center">2020-2021</p>
                         </td>
                         <td>
                             <ClassificationDropdown />
                         </td>
                         <td>
-                            <Input placeholder="Enter Salary" />
+                            <Input type="number" placeholder="Enter Salary" />
                         </td>
                         <td>
-                            <Input placeholder="Enter In-Range %" />
+                            <Input type="number" placeholder="Enter In-Range %" />
                         </td>
                         <td>
-                            <Input placeholder="Enter Performance Pay %" />
+                            <Input type="number" placeholder="Enter Performance Pay %" />
+                        </td>
+                        <td>
+                            <p class="text-center">-</p>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <p>2021-2022</p>
+                            <p class="text-center">2021-2022</p>
                         </td>
                         <td>
                             <ClassificationDropdown />
                         </td>
                         <td>
-                            <Input placeholder="Enter Salary" />
+                            <Input type="number" placeholder="Enter Salary" />
                         </td>
                         <td>
-                            <Input placeholder="Enter In-Range %" />
+                            <Input type="number" placeholder="Enter In-Range %" />
                         </td>
                         <td>
-                            <Input placeholder="Enter Performance Pay %" />
+                            <Input type="number" placeholder="Enter Performance Pay %" />
+                        </td>
+                        <td>
+                            <p class="text-center">-</p>
                         </td>
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div id="calculate-btn-container">
+            <button class="btn btn-default btn-lg">Calculate</button>
+        </div>
+        <div id="results" class="mrgn-tp-sm">
+            <h2 class="mrgn-bttm-md">Results Summary</h2>
+            <div class="well">...</div>
         </div>
     </div>
 </main>
@@ -153,7 +179,25 @@
         height: 100%;
     }
 
+    #title {
+        border-bottom: 3px solid #af3c43;
+        margin-bottom: 0.2em;
+        margin-top: 1em;
+        padding-bottom: 0.2em;
+    }
+
     td {
         vertical-align: middle !important;
+    }
+
+    th {
+        text-align: center;
+        font-size: small;
+    }
+
+    #calculate-btn-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
     }
 </style>
