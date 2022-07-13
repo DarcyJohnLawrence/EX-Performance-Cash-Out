@@ -39,6 +39,44 @@
             '2021': { minpay: 195908, maxpay: 230436 },
         },
     };
+
+    const economicIncreases = {
+        '2018': 0.028,
+        '2019': 0.022,
+        '2020': 0.015,
+        '2021': 0.015,
+    };
+
+    const calculateLumpSumPay = (classification: string, year: string, salary: number, inRangePercentage: number, performancePayPercentage: number) => {
+        const { minpay, maxpay } = classifications[classification][year];
+        const economicIncreaseRate = economicIncreases[year] || 0;
+
+        // to return
+        const beforeRevision = { finalSalary: 0, atRiskPay: 0, bonus: 0 };
+        const afterRevision = { finalSalary: 0, atRiskPay: 0, bonus: 0 };
+
+        // salary increase by in range percentage
+        const salaryIncrease = salary * (inRangePercentage / 100);
+
+        // checking for maxpay cap
+        beforeRevision.finalSalary = salary + salaryIncrease > maxpay ? maxpay : Math.round((salary + salaryIncrease) / 100) * 100;
+
+        const revisedSalary = salary + salaryIncrease + (salary + salaryIncrease) * economicIncreaseRate;
+
+        afterRevision.finalSalary = revisedSalary > maxpay ? maxpay : Math.round(revisedSalary / 100) * 100;
+
+        // Performance Pay
+
+        beforeRevision.atRiskPay = Math.round(salary * (performancePayPercentage / 100));
+        beforeRevision.bonus = Math.round(salary * 0.03);
+
+        afterRevision.atRiskPay = Math.round(revisedSalary * (performancePayPercentage / 100));
+        afterRevision.bonus = Math.round(revisedSalary * 0.03);
+
+        return [beforeRevision, afterRevision];
+    };
+
+    console.log(calculateLumpSumPay('EX-01', '2018', 112300, 5, 10));
 </script>
 
 <main>
